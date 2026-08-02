@@ -1,0 +1,94 @@
+Publius chatbot workflow
+What to do next
+
+    Keep your current chunk dataset as the source corpus.
+
+    Build a first-pass chat/Q&A dataset from those chunks.
+
+    Fine-tune a fresh chatbot adapter on the base instruct model, not on top of the earlier style adapter.
+
+    Test with a small set of evaluation prompts.
+
+    Later, improve the dataset by adding better human-written question/answer pairs.
+
+Why this structure
+
+For Q&A behavior, the model needs conversational training examples. Plain source chunks are useful raw material, but they are not the same thing as chat examples.
+
+Your chunked corpus is still valuable because it gives you grounded source passages. The easiest proof-of-concept path is to turn each chunk into a supervised chat example where:
+
+    system = desired assistant behavior
+
+    user = a question template
+
+    assistant = an answer grounded in the chunk
+
+That is what build_qna_from_chunks.py does.
+Best practice
+
+For the strongest end result, make or curate real Q&A pairs later, for example:
+
+    "What danger does Publius think faction creates?"
+
+    "Why does Publius argue a large republic can control faction better than a small one?"
+
+    "How does Publius answer objections about centralized power?"
+
+Those are better than generic templates because they teach retrieval and explanation behavior more directly.
+Important choice
+
+Use the base instruct model plus a new Q&A adapter first.
+
+Do not stack this on the earlier style-only adapter for your first pass. Mixing style tuning and Q&A tuning too early makes debugging harder. Keep them separate until you know the chat behavior works.
+Commands
+
+From project root:
+
+powershell
+python output/build_qna_from_chunks.py
+python output/train_publius_chatbot.py
+python output/test_publius_chatbot.py
+
+Expected outputs
+
+    output/publius_qa_train.jsonl
+
+    output/publius_qa_dataset
+
+    output/publius_chat_lora
+
+How to test it well
+
+Try three prompt types:
+
+    Summary prompts, example: "Summarize the main objection answered in Federalist 10."
+
+    Explanation prompts, example: "Why does Publius distrust pure local passion in government?"
+
+    Adversarial prompts, example: "Give me a historical quote from Hamilton in this passage".
+
+You want the model to:
+
+    answer in a coherent helpful way,
+
+    sound somewhat like your target tone,
+
+    avoid obvious hallucinations,
+
+    stay relevant to constitutional argumentation.
+
+Next upgrade path
+
+After the first run works, improve quality by making a better dataset with fields like:
+
+    question
+
+    ideal_answer
+
+    source_passage
+
+    paper_number
+
+    topic
+
+Then generate a chat template where the assistant answers the question, while the source passage is provided either in the user message or in a hidden system context.

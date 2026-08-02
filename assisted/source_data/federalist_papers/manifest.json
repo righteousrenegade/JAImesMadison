@@ -1,0 +1,518 @@
+{
+  "source": "federalistpapers.txt",
+  "document_count": 85,
+  "encoding": "UTF-8",
+  "normalization": "Replace long s and common Unicode ligatures; preserve capitalization and spelling.",
+  "documents": [
+    {
+      "number": 1,
+      "filename": "001_federalist_1.txt",
+      "title": "FEDERALIST No. 1. General Introduction",
+      "characters": 9593
+    },
+    {
+      "number": 2,
+      "filename": "002_federalist_2.txt",
+      "title": "FEDERALIST No. 2. Concerning Dangers from Foreign Force and Influence",
+      "characters": 10215
+    },
+    {
+      "number": 3,
+      "filename": "003_federalist_3.txt",
+      "title": "FEDERALIST No. 3. The Same Subject Continued (Concerning Dangers From Foreign Force and Influence)",
+      "characters": 8895
+    },
+    {
+      "number": 4,
+      "filename": "004_federalist_4.txt",
+      "title": "FEDERALIST No. 4. The Same Subject Continued (Concerning Dangers From Foreign Force and Influence)",
+      "characters": 9859
+    },
+    {
+      "number": 5,
+      "filename": "005_federalist_5.txt",
+      "title": "FEDERALIST No. 5. The Same Subject Continued (Concerning Dangers From Foreign Force and Influence)",
+      "characters": 8411
+    },
+    {
+      "number": 6,
+      "filename": "006_federalist_6.txt",
+      "title": "FEDERALIST No. 6. Concerning Dangers from Dissensions Between the States",
+      "characters": 13736
+    },
+    {
+      "number": 7,
+      "filename": "007_federalist_7.txt",
+      "title": "FEDERALIST No. 7. The Same Subject Continued (Concerning Dangers from Dissensions Between the States)",
+      "characters": 14221
+    },
+    {
+      "number": 8,
+      "filename": "008_federalist_8.txt",
+      "title": "FEDERALIST No. 8. The Consequences of Hostilities Between the States",
+      "characters": 12610
+    },
+    {
+      "number": 9,
+      "filename": "009_federalist_9.txt",
+      "title": "FEDERALIST No. 9. The Union as a Safeguard Against Domestic Faction and Insurrection",
+      "characters": 12211
+    },
+    {
+      "number": 10,
+      "filename": "010_federalist_10.txt",
+      "title": "FEDERALIST No. 10. The Same Subject Continued (The Union as a Safeguard Against Domestic Faction and Insurrection)",
+      "characters": 18110
+    },
+    {
+      "number": 11,
+      "filename": "011_federalist_11.txt",
+      "title": "FEDERALIST No. 11. The Utility of the Union in Respect to Commercial Relations and a Navy",
+      "characters": 15162
+    },
+    {
+      "number": 12,
+      "filename": "012_federalist_12.txt",
+      "title": "FEDERALIST No. 12. The Utility of the Union In Respect to Revenue",
+      "characters": 13090
+    },
+    {
+      "number": 13,
+      "filename": "013_federalist_13.txt",
+      "title": "FEDERALIST No. 13. Advantage of the Union in Respect to Economy in Government",
+      "characters": 5919
+    },
+    {
+      "number": 14,
+      "filename": "014_federalist_14.txt",
+      "title": "FEDERALIST No. 14. Objections to the Proposed Constitution From Extent of Territory Answered",
+      "characters": 12871
+    },
+    {
+      "number": 15,
+      "filename": "015_federalist_15.txt",
+      "title": "FEDERALIST No. 15. The Insufficiency of the Present Confederation to Preserve the Union",
+      "characters": 18521
+    },
+    {
+      "number": 16,
+      "filename": "016_federalist_16.txt",
+      "title": "FEDERALIST No. 16. The Same Subject Continued (The Insufficiency of the Present Confederation to Preserve the Union)",
+      "characters": 12305
+    },
+    {
+      "number": 17,
+      "filename": "017_federalist_17.txt",
+      "title": "FEDERALIST No. 17. The Same Subject Continued (The Insufficiency of the Present Confederation to Preserve the Union)",
+      "characters": 9878
+    },
+    {
+      "number": 18,
+      "filename": "018_federalist_18.txt",
+      "title": "FEDERALIST No. 18. The Same Subject Continued (The Insufficiency of the Present Confederation to Preserve the Union)",
+      "characters": 13210
+    },
+    {
+      "number": 19,
+      "filename": "019_federalist_19.txt",
+      "title": "FEDERALIST No. 19. The Same Subject Continued (The Insufficiency of the Present Confederation to Preserve the Union)",
+      "characters": 12913
+    },
+    {
+      "number": 20,
+      "filename": "020_federalist_20.txt",
+      "title": "FEDERALIST No. 20. The Same Subject Continued (The Insufficiency of the Present Confederation to Preserve the Union)",
+      "characters": 9864
+    },
+    {
+      "number": 21,
+      "filename": "021_federalist_21.txt",
+      "title": "FEDERALIST No. 21. Other Defects of the Present Confederation",
+      "characters": 12088
+    },
+    {
+      "number": 22,
+      "filename": "022_federalist_22.txt",
+      "title": "FEDERALIST No. 22. The Same Subject Continued (Other Defects of the Present Confederation)",
+      "characters": 21322
+    },
+    {
+      "number": 23,
+      "filename": "023_federalist_23.txt",
+      "title": "FEDERALIST No. 23. The Necessity of a Government as Energetic as the One Proposed to the Preservation of the Union",
+      "characters": 10943
+    },
+    {
+      "number": 24,
+      "filename": "024_federalist_24.txt",
+      "title": "FEDERALIST No. 24. The Powers Necessary to the Common Defense Further Considered",
+      "characters": 12084
+    },
+    {
+      "number": 25,
+      "filename": "025_federalist_25.txt",
+      "title": "FEDERALIST No. 25. The Same Subject Continued (The Powers Necessary to the Common Defense Further Considered)",
+      "characters": 11843
+    },
+    {
+      "number": 26,
+      "filename": "026_federalist_26.txt",
+      "title": "FEDERALIST No. 26. The Idea of Restraining the Legislative Authority in Regard to the Common Defense Considered.",
+      "characters": 14089
+    },
+    {
+      "number": 27,
+      "filename": "027_federalist_27.txt",
+      "title": "FEDERALIST No. 27. The Same Subject Continued (The Idea of Restraining the Legislative Authority in Regard to the Common Defense Considered)",
+      "characters": 8852
+    },
+    {
+      "number": 28,
+      "filename": "028_federalist_28.txt",
+      "title": "FEDERALIST No. 28. The Same Subject Continued (The Idea of Restraining the Legislative Authority in Regard to the Common Defense Considered)",
+      "characters": 9819
+    },
+    {
+      "number": 29,
+      "filename": "029_federalist_29.txt",
+      "title": "FEDERALIST No. 29. Concerning the Militia",
+      "characters": 13105
+    },
+    {
+      "number": 30,
+      "filename": "030_federalist_30.txt",
+      "title": "FEDERALIST No. 30. Concerning the General Power of Taxation",
+      "characters": 11825
+    },
+    {
+      "number": 31,
+      "filename": "031_federalist_31.txt",
+      "title": "FEDERALIST No. 31. The Same Subject Continued (Concerning the General Power of Taxation)",
+      "characters": 10413
+    },
+    {
+      "number": 32,
+      "filename": "032_federalist_32.txt",
+      "title": "FEDERALIST No. 32. The Same Subject Continued (Concerning the General Power of Taxation)",
+      "characters": 9020
+    },
+    {
+      "number": 33,
+      "filename": "033_federalist_33.txt",
+      "title": "FEDERALIST No. 33. The Same Subject Continued (Concerning the General Power of Taxation)",
+      "characters": 10009
+    },
+    {
+      "number": 34,
+      "filename": "034_federalist_34.txt",
+      "title": "FEDERALIST No. 34. The Same Subject Continued (Concerning the General Power of Taxation)",
+      "characters": 13123
+    },
+    {
+      "number": 35,
+      "filename": "035_federalist_35.txt",
+      "title": "FEDERALIST No. 35. The Same Subject Continued (Concerning the General Power of Taxation)",
+      "characters": 13520
+    },
+    {
+      "number": 36,
+      "filename": "036_federalist_36.txt",
+      "title": "FEDERALIST No. 36. The Same Subject Continued (Concerning the General Power of Taxation)",
+      "characters": 17533
+    },
+    {
+      "number": 37,
+      "filename": "037_federalist_37.txt",
+      "title": "FEDERALIST No. 37. Concerning the Difficulties of the Convention in Devising a Proper Form of Government.",
+      "characters": 16836
+    },
+    {
+      "number": 38,
+      "filename": "038_federalist_38.txt",
+      "title": "FEDERALIST No. 38. The Same Subject Continued, and the Incoherence of the Objections to the New Plan Exposed.",
+      "characters": 19723
+    },
+    {
+      "number": 39,
+      "filename": "039_federalist_39.txt",
+      "title": "FEDERALIST No. 39. The Conformity of the Plan to Republican Principles",
+      "characters": 15727
+    },
+    {
+      "number": 40,
+      "filename": "040_federalist_40.txt",
+      "title": "FEDERALIST No. 40. On the Powers of the Convention to Form a Mixed Government Examined and Sustained.",
+      "characters": 18522
+    },
+    {
+      "number": 41,
+      "filename": "041_federalist_41.txt",
+      "title": "FEDERALIST No. 41. General View of the Powers Conferred by The Constitution",
+      "characters": 21227
+    },
+    {
+      "number": 42,
+      "filename": "042_federalist_42.txt",
+      "title": "FEDERALIST No. 42. The Powers Conferred by the Constitution Further Considered",
+      "characters": 17054
+    },
+    {
+      "number": 43,
+      "filename": "043_federalist_43.txt",
+      "title": "FEDERALIST No. 43. The Same Subject Continued (The Powers Conferred by the Constitution Further Considered)",
+      "characters": 20893
+    },
+    {
+      "number": 44,
+      "filename": "044_federalist_44.txt",
+      "title": "FEDERALIST No. 44. Restrictions on the Authority of the Several States",
+      "characters": 17614
+    },
+    {
+      "number": 45,
+      "filename": "045_federalist_45.txt",
+      "title": "FEDERALIST No. 45. The Alleged Danger From the Powers of the Union to the State Governments.",
+      "characters": 13084
+    },
+    {
+      "number": 46,
+      "filename": "046_federalist_46.txt",
+      "title": "FEDERALIST No. 46. The Influence of the State and Federal Governments Compared",
+      "characters": 15929
+    },
+    {
+      "number": 47,
+      "filename": "047_federalist_47.txt",
+      "title": "FEDERALIST No. 47. The Particular Structure of the New Government and the Distribution of Power Among Its Different Parts.",
+      "characters": 17126
+    },
+    {
+      "number": 48,
+      "filename": "048_federalist_48.txt",
+      "title": "FEDERALIST No. 48. These Departments Should Not Be So Far Separated as to Have No Constitutional Control Over Each Other.",
+      "characters": 11701
+    },
+    {
+      "number": 49,
+      "filename": "049_federalist_49.txt",
+      "title": "FEDERALIST No. 49. Method of Guarding Against the Encroachments of Any One Department of Government by Appealing to the People Through a Convention.",
+      "characters": 10153
+    },
+    {
+      "number": 50,
+      "filename": "050_federalist_50.txt",
+      "title": "FEDERALIST No. 50. Periodical Appeals to the People Considered",
+      "characters": 6963
+    },
+    {
+      "number": 51,
+      "filename": "051_federalist_51.txt",
+      "title": "FEDERALIST No. 51. The Structure of the Government Must Furnish the Proper Checks and Balances Between the Different Departments.",
+      "characters": 11801
+    },
+    {
+      "number": 52,
+      "filename": "052_federalist_52.txt",
+      "title": "FEDERALIST No. 52. The House of Representatives",
+      "characters": 11163
+    },
+    {
+      "number": 53,
+      "filename": "053_federalist_53.txt",
+      "title": "FEDERALIST No. 53. The Same Subject Continued (The House of Representatives)",
+      "characters": 13181
+    },
+    {
+      "number": 54,
+      "filename": "054_federalist_54.txt",
+      "title": "FEDERALIST No. 54. The Apportionment of Members Among the States",
+      "characters": 11947
+    },
+    {
+      "number": 55,
+      "filename": "055_federalist_55.txt",
+      "title": "FEDERALIST No. 55. The Total Number of the House of Representatives",
+      "characters": 12199
+    },
+    {
+      "number": 56,
+      "filename": "056_federalist_56.txt",
+      "title": "FEDERALIST No. 56. The Same Subject Continued (The Total Number of the House of Representatives)",
+      "characters": 10208
+    },
+    {
+      "number": 57,
+      "filename": "057_federalist_57.txt",
+      "title": "FEDERALIST No. 57. The Alleged Tendency of the New Plan to Elevate the Few at the Expense of the Many Considered in Connection with Representation.",
+      "characters": 13228
+    },
+    {
+      "number": 58,
+      "filename": "058_federalist_58.txt",
+      "title": "FEDERALIST No. 58. Objection That The Number of Members Will Not Be Augmented as the Progress of Population Demands.",
+      "characters": 12858
+    },
+    {
+      "number": 59,
+      "filename": "059_federalist_59.txt",
+      "title": "FEDERALIST No. 59. Concerning the Power of Congress to Regulate the Election of Members",
+      "characters": 11389
+    },
+    {
+      "number": 60,
+      "filename": "060_federalist_60.txt",
+      "title": "FEDERALIST No. 60. The Same Subject Continued (Concerning the Power of Congress to Regulate the Election of Members)",
+      "characters": 13465
+    },
+    {
+      "number": 61,
+      "filename": "061_federalist_61.txt",
+      "title": "FEDERALIST No. 61. The Same Subject Continued (Concerning the Power of Congress to Regulate the Election of Members)",
+      "characters": 9004
+    },
+    {
+      "number": 62,
+      "filename": "062_federalist_62.txt",
+      "title": "FEDERALIST No. 62. The Senate",
+      "characters": 14283
+    },
+    {
+      "number": 63,
+      "filename": "063_federalist_63.txt",
+      "title": "FEDERALIST No. 63. The Senate Continued",
+      "characters": 18403
+    },
+    {
+      "number": 64,
+      "filename": "064_federalist_64.txt",
+      "title": "FEDERALIST No. 64. The Powers of the Senate",
+      "characters": 13651
+    },
+    {
+      "number": 65,
+      "filename": "065_federalist_65.txt",
+      "title": "FEDERALIST No. 65. The Powers of the Senate Continued",
+      "characters": 11981
+    },
+    {
+      "number": 66,
+      "filename": "066_federalist_66.txt",
+      "title": "FEDERALIST No. 66. Objections to the Power of the Senate To Set as a Court for Impeachments Further Considered.",
+      "characters": 13486
+    },
+    {
+      "number": 67,
+      "filename": "067_federalist_67.txt",
+      "title": "FEDERALIST No. 67. The Executive Department",
+      "characters": 10037
+    },
+    {
+      "number": 68,
+      "filename": "068_federalist_68.txt",
+      "title": "FEDERALIST No. 68. The Mode of Electing the President",
+      "characters": 8979
+    },
+    {
+      "number": 69,
+      "filename": "069_federalist_69.txt",
+      "title": "FEDERALIST No. 69. The Real Character of the Executive",
+      "characters": 17568
+    },
+    {
+      "number": 70,
+      "filename": "070_federalist_70.txt",
+      "title": "FEDERALIST No. 70. The Executive Department Further Considered",
+      "characters": 20164
+    },
+    {
+      "number": 71,
+      "filename": "071_federalist_71.txt",
+      "title": "FEDERALIST No. 71. The Duration in Office of the Executive",
+      "characters": 10315
+    },
+    {
+      "number": 72,
+      "filename": "072_federalist_72.txt",
+      "title": "FEDERALIST No. 72. The Same Subject Continued, and Re-Eligibility of the Executive Considered.",
+      "characters": 12196
+    },
+    {
+      "number": 73,
+      "filename": "073_federalist_73.txt",
+      "title": "FEDERALIST No. 73. The Provision For The Support of the Executive, and the Veto Power",
+      "characters": 13972
+    },
+    {
+      "number": 74,
+      "filename": "074_federalist_74.txt",
+      "title": "FEDERALIST No. 74. The Command of the Military and Naval Forces, and the Pardoning Power of the Executive.",
+      "characters": 6060
+    },
+    {
+      "number": 75,
+      "filename": "075_federalist_75.txt",
+      "title": "FEDERALIST No. 75. The Treaty-Making Power of the Executive",
+      "characters": 11504
+    },
+    {
+      "number": 76,
+      "filename": "076_federalist_76.txt",
+      "title": "FEDERALIST No. 76. The Appointing Power of the Executive",
+      "characters": 11393
+    },
+    {
+      "number": 77,
+      "filename": "077_federalist_77.txt",
+      "title": "FEDERALIST No. 77. The Appointing Power Continued and Other Powers of the Executive Considered.",
+      "characters": 11930
+    },
+    {
+      "number": 78,
+      "filename": "078_federalist_78.txt",
+      "title": "FEDERALIST No. 78. The Judiciary Department",
+      "characters": 18410
+    },
+    {
+      "number": 79,
+      "filename": "079_federalist_79.txt",
+      "title": "FEDERALIST No. 79. The Judiciary Continued",
+      "characters": 6226
+    },
+    {
+      "number": 80,
+      "filename": "080_federalist_80.txt",
+      "title": "FEDERALIST No. 80. The Powers of the Judiciary",
+      "characters": 14895
+    },
+    {
+      "number": 81,
+      "filename": "081_federalist_81.txt",
+      "title": "FEDERALIST No. 81. The Judiciary Continued, and the Distribution of the Judicial Authority.",
+      "characters": 23065
+    },
+    {
+      "number": 82,
+      "filename": "082_federalist_82.txt",
+      "title": "FEDERALIST No. 82. The Judiciary Continued.",
+      "characters": 9277
+    },
+    {
+      "number": 83,
+      "filename": "083_federalist_83.txt",
+      "title": "FEDERALIST No. 83. The Judiciary Continued in Relation to Trial by Jury",
+      "characters": 34195
+    },
+    {
+      "number": 84,
+      "filename": "084_federalist_84.txt",
+      "title": "FEDERALIST No. 84. Certain General and Miscellaneous Objections to the Constitution Considered and Answered.",
+      "characters": 24826
+    },
+    {
+      "number": 85,
+      "filename": "085_federalist_85.txt",
+      "title": "FEDERALIST No. 85. Concluding Remarks",
+      "characters": 16031
+    }
+  ]
+}

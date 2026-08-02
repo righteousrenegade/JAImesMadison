@@ -1,0 +1,79 @@
+Local LLM prompt pack for Q&A dataset generation
+Best use of your local models
+
+Yes — this is a good use case for LM Studio or another local OpenAI-compatible server.
+
+The best pattern is:
+
+    Use your chunked Federalist source text as input.
+
+    Use a local model to generate grounded Q&A pairs from each chunk.
+
+    Save those pairs in chat-training format.
+
+    Fine-tune your Publius chatbot on that generated dataset.
+
+    Later, hand-clean a subset for quality.
+
+Why this is better than templated questions alone
+
+Templated questions are fine for a first proof of concept, but a local model can generate more varied and natural prompts, such as:
+
+    conceptual questions,
+
+    objection-and-reply questions,
+
+    argument summary questions,
+
+    comparison questions,
+
+    implication questions.
+
+That usually gives better chatbot behavior than repeating the same 5 or 6 prompt templates.
+Recommended workflow
+Option A: fastest
+
+Use the existing build_qna_from_chunks.py file first, train, and validate the loop.
+Option B: better dataset
+
+Run generate_qna_with_local_llm.py against your LM Studio server and use that dataset for training instead.
+LM Studio setup
+
+In LM Studio:
+
+    Load a decent instruction model.
+
+    Start the local server.
+
+    Confirm the OpenAI-compatible endpoint is active, usually:
+
+        http://localhost:1234/v1
+
+    Edit MODEL in generate_qna_with_local_llm.py to match the loaded model name if needed.
+
+Good model types for generation
+
+Use an instruction-tuned model that is good at structured output and summarization. In practice, strong small-to-medium instruct models are usually enough for this dataset generation step.
+Quality advice
+
+Generated Q&A data is useful, but it can also bake in mistakes. So the best pattern is:
+
+    generate a few dozen examples,
+
+    inspect them manually,
+
+    fix obvious garbage,
+
+    then train,
+
+    then expand.
+
+Gold-standard path
+
+The strongest setup is a mixed dataset:
+
+    60 to 80 percent local-model-generated grounded Q&A,
+
+    20 to 40 percent human-reviewed or human-written Q&A.
+
+That usually gives better behavior than either pure templated prompts or pure synthetic data.

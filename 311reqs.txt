@@ -1,0 +1,27 @@
+# Publius training env — tested combo for unsloth 2026.7.6 on Python 3.11
+--extra-index-url https://download.pytorch.org/whl/cu126
+
+unsloth==2026.7.6
+unsloth_zoo==2026.7.7
+torch==2.11.0
+torchvision==0.26.0
+transformers==5.5.0
+trl==0.24.0
+datasets==4.3.0
+fsspec[http]==2025.9.0
+peft>=0.18
+accelerate>=1.10
+bitsandbytes>=0.50
+xformers>=0.0.34
+triton-windows
+sentencepiece>=0.2.0
+hf_transfer
+diffusers
+nest-asyncio
+structlog>=24.1.0
+tyro
+msgspec
+wheel>=0.42.0
+cut_cross_entropy
+torchao>=0.13.0
+psutil
