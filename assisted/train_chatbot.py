@@ -3,9 +3,9 @@ from unsloth import FastLanguageModel
 from trl import SFTTrainer, SFTConfig
 
 MODEL_NAME = "unsloth/gemma-4-12b-it"
-DATASET_PATH = "output_data/publius_qa_local_model_ds"
-OUTPUT_DIR = "output_data/publius_chat_lora"
-MAX_SEQ_LENGTH = 2048
+DATASET_PATH = "output_data/publius_qa_local_model_v2_ds"
+OUTPUT_DIR = "output_data/publius_chat_lora_v2"
+MAX_SEQ_LENGTH = 4096
 
 def format_messages(examples, tokenizer):
     return {

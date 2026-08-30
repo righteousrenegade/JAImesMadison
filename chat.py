@@ -397,7 +397,7 @@ class JAImesMadison:
         self.activation_history = {}
         print("Activation history cleared.")
 
-    def _generate_response(self, prompt: str, max_length: int = 100, temperature: float = 0.7, 
+    def _generate_response(self, prompt: str, max_length: int = 200, temperature: float = 0.7, 
                            save_activations=True, activation_label=None) -> str:
         """Generate a response with the model and stream it token by token"""
         # Register hooks to capture activations
@@ -421,6 +421,10 @@ class JAImesMadison:
                     do_sample=True,
                     top_k=50,
                     top_p=0.95,
+                    # Add these parameters to help with complete sentences
+                    min_length=len(input_ids[0]) + 10,  # Ensure some minimum response length
+                    no_repeat_ngram_size=3,  # Avoid repetition
+                    repetition_penalty=1.2,  # Penalize repetition
                 )
             
             # Get the full generated text
@@ -461,6 +465,17 @@ class JAImesMadison:
             text += '.'
         # Clean up multiple spaces
         text = ' '.join(text.split())
+        return text
+
+    def _ensure_complete_sentence(self, text):
+        """Ensure the text ends with a complete sentence"""
+        # If text doesn't end with sentence-ending punctuation
+        if not re.search(r'[.!?]\s*$', text):
+            # Find the last sentence-ending punctuation
+            match = re.search(r'(.*[.!?])\s+[^.!?]*$', text)
+            if match:
+                # Return text up to the last complete sentence
+                return match.group(1)
         return text
 
     def chat(self):

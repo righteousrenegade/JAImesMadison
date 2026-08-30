@@ -7,32 +7,45 @@ import requests
 from datasets import Dataset, load_from_disk
 
 INPUT_DATASET = "output_data/federalist_chunked"
-OUTPUT_JSONL = "output_data/publius_qa_local_model.jsonl"
-OUTPUT_DATASET = "output_data/publius_qa_local_model_ds"
-FAIL_LOG = "output_data/publius_qa_failures.jsonl"
+OUTPUT_JSONL = "output_data/publius_qa_local_model_v2.jsonl"
+OUTPUT_DATASET = "output_data/publius_qa_local_model_v2_ds"
+FAIL_LOG = "output_data/publius_qa_failures_v2.jsonl"
 
 
 API_BASE = "http://localhost:1234/v1"
 # MODEL = "google/gemma-4-26b-a4b-qat"
-MODEL = "phi-4-mini-instruct"
-MAX_CHUNKS = 700
+MODEL = "google/gemma-4-12b"
+MAX_CHUNKS = 1000
 TIMEOUT = 300
 MAX_RETRIES = 3
 SLEEP_BETWEEN_RETRIES = 1
 RESUME = True
 
-SYSTEM_PROMPT = """You are creating supervised fine-tuning data.
-Return ONLY valid JSON.
+### Old sysprompt that didn't seem to output well.
+SYSTEM_PROMPT = """You are creating supervised fine-tuning data. Return ONLY valid JSON.
 Create exactly 3 grounded question-answer pairs from the source passage.
+
+Write each answer in Publius's voice: the answerer is Publius speaking directly to the reader. Do not describe Publius, imitate Publius from a distance, or explain how Publius would answer.
+
 Rules:
+- Each question should be a single, clear, and specific question that can be answered using only the source passage.
+- Each question should ask directly about the passage. For example, "What is the main argument of this passage?" is valid. Do not mention Publius, the author, the speaker, or the persona in a question.
+- Questions should be purely conceptual and related to the content of the passage alone.
+- Questions must never mention Publius, the author, the speaker, the persona, or how anyone would answer.
 - Every answer must be supported by the passage.
+- Begin with the substantive answer, never with a description of who is speaking.
+- Write in first-person rhetorical voice where natural: "I contend...", "It is...", "The reason is...".
+- Never use phrases such as "Publius would say", "Publius argues", "the author says", "the speaker believes", "in Publius's view", or "this passage explains".
+- The answer must stand alone as something Publius could have written to answer the reader. Do not discuss style, role-play, imitation, or the generation task.
 - Do not add outside facts.
-- Keep answers in clear modern English.
 - Escape all internal double quotes inside JSON strings.
 - Do not include markdown fences.
-- Write 2 to 4 complete sentences, usually 45 to 110 words.
+- Write 2 to 4 complete sentences, usually 45 to 150 words.
 - State the answer directly, then explain why it follows from the passage.
 - Do not answer with a fragment, a quotation alone, or a single word.
+Example of the required voice:
+Question: Why is an energetic government necessary?
+Answer: An energetic government is necessary because the purposes of government cannot be fulfilled by a system that wants either the power or the steadiness to act. The safety of the Union, the regular administration of justice, and the protection of the public interests require authority proportioned to the ends entrusted to it.
 Output schema:
 {
   \"qas\": [
@@ -43,9 +56,57 @@ Output schema:
 }
 """
 
-REPAIR_PROMPT = """Your previous output was invalid JSON.
+
+SYSTEM_PROMPT = """You are generating supervised Q&A data.
+
+Answer the reader directly in the voice of the person who wrote the
+source passage. The answer must sound like something that person personally
+wrote, not like an explanation of what that person believes.
+
+Do not describe the writer or the writer's position.
+Do not say:
+- "Publius would say"
+- "Publius argues"
+- "the author believes"
+- "according to Publius"
+- "the passage explains"
+
+Bad:
+"Publius would argue that an energetic government is necessary."
+
+Good:
+"An energetic government is necessary because the purposes entrusted to
+government cannot be fulfilled by a system wanting either the power or the
+steadiness to act."
+
+Create exactly 3 grounded question-answer pairs.
+Questions must ask directly about the source passage and must not mention
+Publius, the author, the speaker, or the persona.
+
+Every answer must:
+- answer the question directly
+- use only information from the passage
+- use a direct first-person rhetorical voice where natural
+- contain 2 to 4 complete sentences
+- avoid commentary about the writer or the writing task
+
+Return only valid JSON with this schema:
+{
+  "qas": [
+    {"question": "...", "answer": "..."},
+    {"question": "...", "answer": "..."},
+    {"question": "...", "answer": "..."}
+  ]
+}
+"""
+
+
+REPAIR_PROMPT = """Your previous output was invalid JSON or violated the voice requirements.
 Rewrite it as valid JSON only.
-Do not change the meaning.
+Keep every answer grounded in the source passage, but rewrite it as Publius speaking directly to the reader.
+Never mention Publius, the author, the speaker, the persona, role-play, or how Publius would answer.
+Never begin an answer with "Publius would", "Publius argues", "the author", or similar meta-language.
+Start each answer with its substantive claim.
 Do not add commentary.
 Return exactly this schema:
 {
@@ -58,12 +119,11 @@ Return exactly this schema:
 """
 
 TRAINING_SYSTEM = (
-    "You are a careful constitutional assistant writing in clear modern English with "
+    "You are a clone of the original Publius persona, writing in clear modern English with "
     "a restrained Publius-like tone. Answer using only ideas supported by the source text."
 )
 
-
-def chat(messages, temperature=0.2):
+def chat(messages, temperature=0.4):
     r = requests.post(
         f"{API_BASE}/chat/completions",
         json={
@@ -76,7 +136,6 @@ def chat(messages, temperature=0.2):
     r.raise_for_status()
     return r.json()["choices"][0]["message"]["content"]
 
-
 def extract_json_blob(text):
     text = text.strip()
     match = re.search(r"\{.*\}", text, re.S)
@@ -84,24 +143,34 @@ def extract_json_blob(text):
         raise ValueError("No JSON object found in output")
     return match.group(0)
 
-
 def try_parse_json(text):
     blob = extract_json_blob(text)
     return json.loads(blob)
 
-
 def normalize_qa_blob(blob):
     qas = blob.get("qas", [])
     cleaned = []
+    forbidden_question = re.compile(
+        r"\b(publius|the author|the speaker|the persona)\b|"
+        r"\bhow .* would\b",
+        re.IGNORECASE,
+    )
+    forbidden_answer = re.compile(
+        r"\b(publius would|publius argues|the author says|the speaker believes|"
+        r"in publius['’]?s view|how publius would)\b",
+        re.IGNORECASE,
+    )
     for qa in qas:
         q = str(qa.get("question", "")).strip()
         a = str(qa.get("answer", "")).strip()
-        if q and a:
-            cleaned.append({"question": q, "answer": a})
-    if len(cleaned) < 1:
-        raise ValueError("No usable Q&A pairs after normalization")
-    return {"qas": cleaned[:3]}
-
+        if not q or not a:
+            continue
+        if forbidden_question.search(q) or forbidden_answer.search(a):
+            raise ValueError("Q&A contains forbidden meta-persona language")
+        cleaned.append({"question": q, "answer": a})
+    if len(cleaned) != 3:
+        raise ValueError(f"Expected exactly 3 Q&A pairs, got {len(cleaned)}")
+    return {"qas": cleaned}
 
 def load_existing_questions(path):
     seen = set()
@@ -116,7 +185,6 @@ def load_existing_questions(path):
             if len(msgs) > 1:
                 seen.add(msgs[1].get("content", ""))
     return seen
-
 
 def build_training_rows(chunk, qa_blob):
     rows = []
